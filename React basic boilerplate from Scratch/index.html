@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React Basic</title>
+    <style>
+      .img-fluid {
+        max-width: 25%;
+      }
+    </style>
+    <!-- React.js CDNS -->
+    <script
+      src="https://unpkg.com/react@17/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+
+    <!-- v6 <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script> -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <!-- Load our React component. -->
+    <script type="text/babel">
+      // Whatever returning a JSX is called componet. It is supposed to start with "Capital Letter"
+      // we can pass arguments with this, they're known as the props
+      // Example
+      // <Card /> "A componet"
+      // <Card username="XYX" image="https://goog.le/img/photo.jpg" />
+      // ^^ "A component with two props and ther are username and image" ^^
+
+      let Card = (props) => {
+        console.log({ props });
+        return (
+          <>
+            <h1>{props.username}</h1>
+            <img
+              className="img-fluid"
+              src={props.image}
+              alt={"alternative text for user " + props.username}
+            />
+          </>
+        );
+      };
+
+      let stonks = (
+        <>
+          <Card
+            username="maria"
+            image="https://images.unsplash.com/photo-1643306713301-f0cbbaed139d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8"
+          />
+          <Card
+            username="amanda"
+            image="https://images.unsplash.com/photo-1643327719383-55281674f3f1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8"
+          />
+        </>
+      );
+
+      ReactDOM.render(stonks, document.getElementById("root"));
+    </script>
+  </body>
+</html>
