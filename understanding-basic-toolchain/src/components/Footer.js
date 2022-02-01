@@ -1,8 +1,8 @@
 import React from "react";
 
 const Footer = () => (
-  <footer className="container">
-    <ul>
+  <footer>
+    <ul className="container">
       <li>Facebook</li>
       <li>Twitter</li>
       <li>Instagram</li>
