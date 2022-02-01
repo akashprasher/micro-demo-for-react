@@ -1,5 +1,6 @@
 import React from "react";
 import articles from "../data.json";
+import propTypes from "prop-types";
 
 const Articles = () => (
   <div className="articles container">
@@ -18,4 +19,7 @@ const Article = (props) => {
   );
 };
 
+Article.propTypes = {
+  articleData: propTypes.string,
+};
 export default Articles;
