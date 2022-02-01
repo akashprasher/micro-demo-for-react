@@ -9,10 +9,7 @@ const App = () => (
   <>
     <Header />
     <Hero />
-    <div className="articles container">
-      <Articles />
-    </div>
-
+    <Articles />
     <Footer />
   </>
 );
