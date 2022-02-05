@@ -10,63 +10,39 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
-.dog-img {
-  width: 350px;
-  height: auto;
-}
-
 .container {
   width: 80%;
   margin: auto;
 }
 
-/* .logo {
-} */
+.navigation {
+  background-color: #ffec99;
+}
 
-.navigation-bar {
-  height: 48px;
+.header {
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  height: 64px;
+  align-items: center;
 }
 
-.navigation-bar ul {
-  list-style: none;
-  display: flex;
+.header button {
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  font-weight: 600;
+  border: none;
+  box-shadow: 2px 2px #000000;
+  transition: 0.2s;
 }
 
-.navigation-bar ul li {
-  padding-left: 10px;
+.header button:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 0px 0px #000000;
+  transition: 0.2s;
 }
 
-.hero {
-  height: 70vh;
-  background-image: url("https://images.unsplash.com/photo-1592951117908-4acda89ee817?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8");
-  background-size: cover;
-  background-position: right;
-}
-.articles {
-  padding: 1rem 0rem;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 1rem;
-}
-
-.article-img {
-  width: 100%;
-}
-
-footer {
-  background-color: #272727;
-  color: #ffffff;
-  padding: 1rem 0rem;
-}
-
-footer ul {
-  display: flex;
-}
-
-footer ul li {
-  list-style: none;
-  padding-right: 10px;
+.log-f {
+  text-align: center;
+  padding: 5rem;
 }
