@@ -17,6 +17,15 @@ class App extends React.Component {
     });
   };
 
+  handleView = (isUserLogged) => {
+    // this.state.isLoggedIn ? <User /> : <Guest />
+    if (isUserLogged) {
+      return <User />;
+    } else {
+      return <Guest />;
+    }
+  };
+
   render() {
     return (
       <>
@@ -29,7 +38,7 @@ class App extends React.Component {
           </div>
         </div>
         <div className="container">
-          {this.state.isLoggedIn ? <User /> : <Guest />}
+          {this.handleView(this.state.isLoggedIn)}
         </div>
       </>
     );
