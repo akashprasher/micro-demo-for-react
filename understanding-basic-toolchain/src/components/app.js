@@ -5,47 +5,33 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      counter: 0,
+      inputText: "",
     };
   }
 
-  handleClick = (operation) => {
-    switch (operation) {
-      case "in":
-        this.setState({
-          counter: this.state.counter + 1,
-        });
-        break;
-
-      case "de":
-        this.setState({
-          counter: this.state.counter - 1,
-        });
-        break;
-
-      case "re":
-        this.setState({
-          counter: 0,
-        });
-        break;
-    }
+  handleChange = (event) => {
+    this.setState({
+      inputText: event.target.value,
+    });
+    // console.log(event);
   };
+
+  handleClick = () => {};
 
   render() {
     return (
-      <center>
-        <h1>Counter App !</h1>
-        <h2 className="m-2">{this.state.counter}</h2>
-        <button onClick={() => this.handleClick("in")} className="btn-in">
-          Increment
-        </button>
-        <button onClick={() => this.handleClick("re")} className="btn-re">
-          Reset
-        </button>
-        <button onClick={() => this.handleClick("de")} className="btn-de">
-          Decrement
-        </button>
-      </center>
+      <>
+        <div className="header">
+          <h3>Understanding Input Events</h3>
+        </div>
+        <div className="container in-div">
+          <input onChange={this.handleChange} type="text" />
+          <button onClick={() => this.handleClick()}>Submit</button>
+        </div>
+        {/* <div>
+          <p>{this.state.inputText}</p>
+        </div> */}
+      </>
     );
   }
 }

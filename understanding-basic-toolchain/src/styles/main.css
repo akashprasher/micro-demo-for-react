@@ -15,27 +15,21 @@ body {
   margin: auto;
 }
 
-.btn-in,
-.btn-re,
-.btn-de {
-  padding: 1rem 2rem;
-  margin: 1rem 0.5rem;
-  background-color: #0957ff;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
+.header {
+  display: flex;
+  height: 64px;
+  background-color: #ffd3d3;
+  align-items: center;
+  justify-content: center;
 }
 
-.m-2 {
-  margin: 2rem;
+.in-div {
+  text-align: center;
+  padding: 5rem;
 }
 
-/* .btn-in {
-  background-color: #000000;
+.in-div input,
+button {
+  padding: 0.5rem 1rem;
+  margin: 0rem 0.2rem;
 }
-.btn-re {
-  background-color: #000000;
-}
-.btn-de {
-  background-color: #000000;
-} */
