@@ -3,51 +3,52 @@ import React from "react";
 
 class App extends React.Component {
   constructor(props) {
-    super(props);
+    super();
     this.state = {
-      counter: 0,
+      isLoggedIn: false,
     };
   }
 
-  handleClick = (operation) => {
-    switch (operation) {
-      case "in":
-        this.setState({
-          counter: this.state.counter + 1,
-        });
-        break;
-
-      case "de":
-        this.setState({
-          counter: this.state.counter - 1,
-        });
-        break;
-
-      case "re":
-        this.setState({
-          counter: 0,
-        });
-        break;
-    }
+  handleLoginClick = () => {
+    this.setState((prevState) => {
+      return {
+        isLoggedIn: !prevState.isLoggedIn,
+      };
+    });
   };
 
   render() {
     return (
-      <center>
-        <h1>Counter App !</h1>
-        <h2 className="m-2">{this.state.counter}</h2>
-        <button onClick={() => this.handleClick("in")} className="btn-in">
-          Increment
-        </button>
-        <button onClick={() => this.handleClick("re")} className="btn-re">
-          Reset
-        </button>
-        <button onClick={() => this.handleClick("de")} className="btn-de">
-          Decrement
-        </button>
-      </center>
+      <>
+        <div className="navigation">
+          <div className="header container">
+            <h3>User Details</h3>
+            <button onClick={() => this.handleLoginClick()}>
+              {this.state.isLoggedIn ? "Logout 📛" : "Login 🙌"}
+            </button>
+          </div>
+        </div>
+        <div className="container">
+          {this.state.isLoggedIn ? <User /> : <Guest />}
+        </div>
+      </>
     );
   }
 }
 
+let User = () => {
+  return (
+    <div className="log-f">
+      <h1>Welcome John! 🥳</h1>
+    </div>
+  );
+};
+
+let Guest = () => {
+  return (
+    <div className="log-f">
+      <h1>Please Login First 🤹‍♀️🤹‍♂️🤹</h1>
+    </div>
+  );
+};
 export default App;
