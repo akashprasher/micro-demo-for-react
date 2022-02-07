@@ -1,12 +1,16 @@
 import React from "react";
 // import ReactDOM from "react-dom";
 import Header from "./Header";
-import Tags from "./Tags";
+import Hero from "./Hero";
+import Articles from "./Articles";
+import Footer from "./Footer";
 
-let App = () => (
+const App = () => (
   <>
     <Header />
-    <Tags />
+    <Hero />
+    <Articles />
+    <Footer />
   </>
 );
 
