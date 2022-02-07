@@ -18,6 +18,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "homepage": "https://keen-sinoussi-268307.netlify.app/build/",
   "eslintConfig": {
     "extends": [
       "react-app",
