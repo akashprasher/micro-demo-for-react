@@ -15,21 +15,45 @@ body {
   margin: auto;
 }
 
-.header {
+.wrapper {
   display: flex;
-  height: 64px;
-  background-color: #ffd3d3;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  width: 50%;
+  /* padding: 10rem; */
+  height: 100vh;
 }
 
-.in-div {
-  text-align: center;
+form {
+  width: 100%;
   padding: 5rem;
+  background-color: #aaaaaa;
+  border: 2px solid #0e0e0e;
 }
 
-.in-div input,
-button {
+form h2 {
+  text-align: center;
+  background-color: #fffee0;
+  padding: 0.5rem 0rem;
+  margin-bottom: 0.5rem;
+}
+
+.form-one input,
+.form-one textarea,
+.form-one select {
+  /* text-align: center; */
+  display: block;
   padding: 0.5rem 1rem;
-  margin: 0rem 0.2rem;
+  margin: 0.5rem 0rem;
+  width: 100%;
+}
+
+.form-one input[type="Submit"] {
+  background-color: #1f1f1f;
+  color: #ffffff;
+}
+
+.form-one input[type="file"] {
+  padding: 3rem 1rem;
+  border: 1px dotted #0f0f0f;
 }
