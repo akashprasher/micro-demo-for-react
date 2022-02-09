@@ -3,56 +3,55 @@ import React from "react";
 class App extends React.Component {
   constructor(props) {
     super();
-    console.log("Constructor!");
     this.state = {
-      counter: 0,
-      visible: "first",
+      date: new Date(),
+      visibilty: true,
+      btn: "Hide Timer",
     };
+    this.timer = null;
+    this.x = 0;
   }
 
   componentDidMount() {
-    console.log("did mount?");
+    this.timer = setInterval(() => {
+      this.setState({
+        date: new Date(),
+      });
+    }, 1000);
   }
 
-  componentDidUpdate() {
-    console.log("did update");
+  componentWillUnmount() {
+    clearInterval(this.timer);
   }
+
+  // Not work because we haven't unmounted anyway for this perticular case
+
+  handleClick = () => {
+    this.setState((prevState) => {
+      return {
+        visibilty: prevState.visibilty ? false : true,
+      };
+    });
+  };
 
   render() {
-    console.log("Render!");
     return (
       <>
-        {/* <h1>{this.state.counter}</h1> */}
-        {this.state.visible === "first" ? <First /> : <Second />}
-        <button
-          onClick={() => {
-            this.setState({
-              visible: this.state.visible === "first" ? "second" : "first",
-            });
-          }}
-        >
-          [ + ]
-        </button>
+        <div className="wrapper">
+          <div className="mainn">
+            <h1>
+              {this.state.visibilty
+                ? this.state.date.toLocaleTimeString()
+                : "Time is Hidden"}
+            </h1>
+            <br />
+            <button onClick={() => this.handleClick()}>
+              {this.state.visibilty ? this.state.btn : "Show Timer"}
+            </button>
+          </div>
+        </div>
       </>
     );
-  }
-}
-
-class First extends React.Component {
-  componentWillUnmount() {
-    console.log("unmount first");
-  }
-  render() {
-    return <h1>first</h1>;
-  }
-}
-
-class Second extends React.Component {
-  componentWillUnmount() {
-    console.log("unmount second");
-  }
-  render() {
-    return <h1>Second</h1>;
   }
 }
 
