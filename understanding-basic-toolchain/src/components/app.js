@@ -1,58 +1,53 @@
 import React from "react";
+import Loader from "./Loader";
 
 class App extends React.Component {
   constructor(props) {
     super();
     console.log("Constructor!");
     this.state = {
-      counter: 0,
-      visible: "first",
+      data: null,
     };
   }
-
   componentDidMount() {
-    console.log("did mount?");
-  }
-
-  componentDidUpdate() {
-    console.log("did update");
+    fetch("https://jsonplaceholder.typicode.com/posts")
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        this.setState({
+          data,
+        });
+      });
   }
 
   render() {
-    console.log("Render!");
+    if (!this.state.data) {
+      return (
+        <>
+          <Loader />
+        </>
+      );
+    }
     return (
       <>
-        {/* <h1>{this.state.counter}</h1> */}
-        {this.state.visible === "first" ? <First /> : <Second />}
-        <button
-          onClick={() => {
-            this.setState({
-              visible: this.state.visible === "first" ? "second" : "first",
-            });
-          }}
-        >
-          [ + ]
-        </button>
+        <div className="container">
+          <nav>
+            <h3>Data Fetching</h3>
+          </nav>
+          <div>
+            {this.state.data.map((post) => {
+              return (
+                <li className="title-card" key={post.id}>
+                  <h3>{post.title}</h3>
+                  <p>{post.body}</p>
+                </li>
+              );
+            })}
+          </div>
+        </div>
       </>
     );
-  }
-}
-
-class First extends React.Component {
-  componentWillUnmount() {
-    console.log("unmount first");
-  }
-  render() {
-    return <h1>first</h1>;
-  }
-}
-
-class Second extends React.Component {
-  componentWillUnmount() {
-    console.log("unmount second");
-  }
-  render() {
-    return <h1>Second</h1>;
   }
 }
 

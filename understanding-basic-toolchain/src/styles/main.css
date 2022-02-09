@@ -8,6 +8,7 @@
 
 body {
   font-family: "Poppins", sans-serif;
+  background-color: #fffeeb;
 }
 
 .container {
@@ -19,41 +20,72 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 50%;
+  /* width: 50%; */
   /* padding: 10rem; */
   height: 100vh;
 }
 
-form {
-  width: 100%;
-  padding: 5rem;
-  background-color: #aaaaaa;
-  border: 2px solid #0e0e0e;
+nav {
+  display: flex;
+  align-items: center;
+  height: 64px;
 }
 
-form h2 {
-  text-align: center;
-  background-color: #fffee0;
-  padding: 0.5rem 0rem;
-  margin-bottom: 0.5rem;
+.loader {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.form-one input,
-.form-one textarea,
-.form-one select {
-  /* text-align: center; */
-  display: block;
-  padding: 0.5rem 1rem;
-  margin: 0.5rem 0rem;
-  width: 100%;
+@keyframes bouncing-loader {
+  to {
+    opacity: 0.1;
+    transform: translate3d(0, -16px, 0);
+  }
 }
 
-.form-one input[type="Submit"] {
-  background-color: #1f1f1f;
-  color: #ffffff;
+.bouncing-loader {
+  display: flex;
+  justify-content: center;
 }
 
-.form-one input[type="file"] {
-  padding: 3rem 1rem;
-  border: 1px dotted #0f0f0f;
+.bouncing-loader > div {
+  width: 16px;
+  height: 16px;
+  margin: 3rem 0.2rem;
+  background: #ca5e1f;
+  border-radius: 50%;
+  animation: bouncing-loader 0.6s infinite alternate;
+}
+
+.bouncing-loader > div:nth-child(2) {
+  background: #cfcfcf;
+  animation-delay: 0.2s;
+}
+
+.bouncing-loader > div:nth-child(3) {
+  background: #ffdada;
+  animation-delay: 0.4s;
+}
+
+.title-card {
+  list-style-type: none;
+  padding: 0.5rem 0.5rem;
+  margin-bottom: 0.3rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.title-card:hover {
+  transform: scale(1.01);
+}
+
+.title-card:nth-child(even) {
+  background-color: #cfcfcf;
+}
+
+.title-card:nth-child(odd) {
+  background-color: #ffdada;
 }
