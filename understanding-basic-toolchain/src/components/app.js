@@ -1,28 +1,58 @@
 import React from "react";
-// import FormInput from "./FormInput";
-// import FileInputUn from "./FileInputUn";
-// import TextArea from "./TextArea";
-// import SelectTag from "./SelectTag";
-import FileInput from "./FileInput";
 
 class App extends React.Component {
   constructor(props) {
-    super(props);
+    super();
+    console.log("Constructor!");
     this.state = {
-      inputText: "",
+      counter: 0,
+      visible: "first",
     };
   }
 
+  componentDidMount() {
+    console.log("did mount?");
+  }
+
+  componentDidUpdate() {
+    console.log("did update");
+  }
+
   render() {
+    console.log("Render!");
     return (
-      <div className="container wrapper">
-        {/* <FormInput /> */}
-        {/* <FileInputUn /> */}
-        {/* <TextArea /> */}
-        {/* <SelectTag /> */}
-        <FileInput />
-      </div>
+      <>
+        {/* <h1>{this.state.counter}</h1> */}
+        {this.state.visible === "first" ? <First /> : <Second />}
+        <button
+          onClick={() => {
+            this.setState({
+              visible: this.state.visible === "first" ? "second" : "first",
+            });
+          }}
+        >
+          [ + ]
+        </button>
+      </>
     );
+  }
+}
+
+class First extends React.Component {
+  componentWillUnmount() {
+    console.log("unmount first");
+  }
+  render() {
+    return <h1>first</h1>;
+  }
+}
+
+class Second extends React.Component {
+  componentWillUnmount() {
+    console.log("unmount second");
+  }
+  render() {
+    return <h1>Second</h1>;
   }
 }
 
