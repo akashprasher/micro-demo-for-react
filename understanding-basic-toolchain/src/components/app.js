@@ -1,10 +1,11 @@
 import React from "react";
 import Loader from "./Loader";
 
+import { Link } from "react-router-dom";
+
 class App extends React.Component {
   constructor(props) {
     super();
-    console.log("Constructor!");
     this.state = {
       data: null,
     };
@@ -32,15 +33,15 @@ class App extends React.Component {
     return (
       <>
         <div className="container">
-          <nav>
-            <h3>Data Fetching</h3>
-          </nav>
           <div>
             {this.state.data.map((post) => {
               return (
                 <li className="title-card" key={post.id}>
-                  <h3>{post.title}</h3>
+                  <h3 className="app-heading">{post.title}</h3>
                   <p>{post.body}</p>
+                  <Link to={"/post/" + post.id}>
+                    <button className="read-more-btn">Read More</button>
+                  </Link>
                 </li>
               );
             })}
