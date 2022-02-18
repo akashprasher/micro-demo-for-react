@@ -1,17 +1,5 @@
-import React from "react";
-
-class Loader extends React.Component {
-  render() {
-    return (
-      <div className="loader">
-        <div className="bouncing-loader">
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
-      </div>
-    );
-  }
-}
+const Loader = ({ size }) => {
+  return <div className="donut"></div>;
+};
 
 export default Loader;

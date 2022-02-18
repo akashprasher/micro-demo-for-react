@@ -11,211 +11,44 @@ body {
   background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/38816/image-from-rawpixel-id-2210775-jpeg.jpg")
     center center no-repeat;
   background-size: cover;
+  padding: 2rem;
 }
 
-.container {
-  width: 80%;
-  margin: auto;
-}
-
-.wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /* width: 50%; */
-  /* padding: 10rem; */
-  height: 100vh;
-}
-
-nav {
-  display: flex;
-  align-items: center;
-  height: 64px;
-  justify-content: space-between;
-}
-
-.nav-links ul {
-  display: flex;
+li {
   list-style: none;
 }
 
-.nav-item {
-  margin: 0rem 0rem 0rem 0.5rem;
-  text-decoration: none;
+img {
+  margin: 0.3rem;
+  border-radius: 50%;
 }
 
-.active {
-  font-weight: 600;
-  box-shadow: 0px 2px #ca5e1f;
+img:hover {
+  transform: scale(1.1);
+  transition: 0.3s;
+  border: 1px solid #dedede;
 }
 
-.team-div {
-  padding: 1rem 0rem;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 1rem;
-}
-
-.team-div img {
-  width: 100%;
-}
-
-.loader {
-  height: 100vh;
+ul {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-wrap: wrap;
 }
 
-@keyframes bouncing-loader {
-  to {
-    opacity: 0.1;
-    transform: translate3d(0, -16px, 0);
+@keyframes donut-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }
 
-.bouncing-loader {
-  display: flex;
-  justify-content: center;
-}
-
-.bouncing-loader > div {
-  width: 16px;
-  height: 16px;
-  margin: 3rem 0.2rem;
-  background: #ca5e1f;
+.donut {
+  display: inline-block;
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-left-color: #7983ff;
   border-radius: 50%;
-  animation: bouncing-loader 0.6s infinite alternate;
-}
-
-.bouncing-loader > div:nth-child(2) {
-  background: #cfcfcf;
-  animation-delay: 0.2s;
-}
-
-.bouncing-loader > div:nth-child(3) {
-  background: #ffdada;
-  animation-delay: 0.4s;
-}
-
-.title-card {
-  list-style-type: none;
-  padding: 0.5rem 0.5rem;
-  margin-bottom: 0.5rem;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: 0.5s;
-}
-
-.title-card:hover {
-  transform: scale(1.01);
-}
-
-.title-card:nth-child(even) {
-  background-color: #cfcfcf;
-}
-
-.title-card:nth-child(odd) {
-  background-color: #ffdada;
-}
-
-/* Contact Form Below */
-
-.read-more-btn {
-  margin-top: 0.5rem;
-  /* padding: 0.5rem 1rem; */
-}
-
-.form-div {
-  width: 100vw;
-  height: 100vh;
-  display: grid;
-  align-items: center;
-  justify-items: center;
-}
-
-.contact-us {
-  background: #f8f4e5;
-  padding: 50px 100px;
-  border: 2px solid black;
-  box-shadow: 15px 15px 1px #ffa580, 15px 15px 1px 2px black;
-}
-
-input {
-  display: block;
-  width: 100%;
-  font-size: 14pt;
-  line-height: 28pt;
-  font-family: "Fjalla One";
-  margin-bottom: 28pt;
-  border: none;
-  border-bottom: 5px solid black;
-  background: #f8f4e5;
-  min-width: 250px;
-  padding-left: 5px;
-  outline: none;
-  color: black;
-}
-
-input:focus {
-  border-bottom: 5px solid #ffa580;
-}
-
-button {
-  /* display: block; */
-  margin: 0 auto;
-  line-height: 28pt;
-  padding: 0 20px;
-  background: #ffa580;
-  letter-spacing: 2px;
-  transition: 0.2s all ease-in-out;
-  outline: none;
-  border: 1px solid black;
-  box-shadow: 3px 3px 1px #95a4ff, 3px 3px 1px 1px black;
-}
-button:hover {
-  background: black;
-  color: white;
-  border: 1px solid black;
-}
-
-::selection {
-  background: #ffc8ff;
-}
-
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus {
-  border-bottom: 5px solid #95a4ff;
-  -webkit-text-fill-color: #2a293e;
-  -webkit-box-shadow: 0 0 0px 1000px #f8f4e5 inset;
-  transition: background-color 5000s ease-in-out 0s;
-}
-
-/*  */
-.heading {
-  /* color: #778cff; */
-  color: #222a2c;
-}
-
-.heading::before,
-.app-heading::before {
-  position: absolute;
-  content: "";
-  /* width: 80px; */
-  /* height: 25px; */
-  z-index: -1;
-  /* margin-top: 0.5rem; */
-  padding: 0.7rem 2rem;
-  /* border: 5px dotted #ffa680; */
-  background: #ffc8ff;
-}
-
-/* .app-heading {
-  z-index: 1;
-  position: relative;
-} */
-
-.app-heading::before {
-  background: #fff7af;
+  width: 30px;
+  height: 30px;
+  animation: donut-spin 1.2s linear infinite;
 }
