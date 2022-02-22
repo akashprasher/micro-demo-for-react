@@ -1,6 +1,7 @@
 import { withEnhancement } from "./withEnhancment";
 import Users from "./Users";
 import Loader from "./Loader";
+import First from "./First";
 
 let Following = (props) => {
   return (
@@ -8,6 +9,7 @@ let Following = (props) => {
       <h1>Following</h1>
       <ul>
         <ul>{props.data ? <Users data={props.data} /> : <Loader />}</ul>
+        <First />
       </ul>
     </>
   );
